@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/nodemon/bin/nodemons.js src/app.js --exec 'npm run node && lint'",
+    "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
