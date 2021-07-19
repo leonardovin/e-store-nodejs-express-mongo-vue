@@ -4,11 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/nodemon/bin/nodemons.js src/app.js --exec 'npm run node && lint'",
-    "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs"
+    "start": "nodemon src/app.js --exec  \"npm run lint && node\"",
+    "lint": "eslint src/**/*.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-plugin-vue": "^7.14.0"
+  }
 }
