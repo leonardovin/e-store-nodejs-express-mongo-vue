@@ -16,5 +16,9 @@ module.exports = {
         "vue"
     ],
     "rules": {
+        "indent": "off",
+        "quotes": "off",
+        "comma-dangle": "off",
+        "semi" : "off"
     }
 };

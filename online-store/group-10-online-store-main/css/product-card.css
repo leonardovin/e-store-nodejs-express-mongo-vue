@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.product-frame{
+    width: 256px;
+    height: 312px;
+    background-color: rgba(185, 185, 185, 0.452);
+    border-radius: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-frame::before{
+    content: ' ';
+    position: absolute;
+    top: -50%;
+    height: 100%;
+    width: 100%;
+    background: #FFC107;
+    transform: skewY(345deg);
+    transition: 0.5s;
+  }
+
+
+  .product-frame::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;    
+  }
+
+  .product-frame:hover::before{ 
+    top: -70%;
+    transform: skewY(390deg);
+  }
+
+  .product-frame .imgbox,.imgbox-inanimate{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 20px;
+    z-index: 1;
+    width: 100%; 
+  }
+
+  .product-frame .imgbox img{
+    max-width: 100%;
+    transition: 0.5s;
+  }
+
+  .product-frame:hover .imgbox img {
+    max-width: 35%;
+
+  }
+
+  .product-frame .contentbox{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  .product-frame .contentbox .price{
+    top: 20px;
+  }
+
+  .product-frame .contentbox .buybtn{
+    position: relative;
+    opacity: 0;
+    top: 200px;
+    padding: 10px 30px;
+    color: white;
+    z-index: 0;
+    border-radius: 30px;
+    background-color: black;
+    transition: 0.2s;
+  }
+
+  .product-frame:hover .contentbox .buybtn{
+    top: 20px;
+    opacity: 1;
+  }
+  /* HTML: 
+    <div class="product-frame">
+      <div class="imgbox">
+        <img width="162" height="146" src="/images/oculos1.jpg" alt="productimg">
+      </div>
+      <div class="contentbox">
+        <h3>Product Name</h3>
+        <h2 class="price">$69.99</h2>
+        <a href="#" class="buybtn">Comprar</a>
+      </div>
+    </div>
+  */

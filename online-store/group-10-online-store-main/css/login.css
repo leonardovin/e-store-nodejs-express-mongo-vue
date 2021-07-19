@@ -1,0 +1,20 @@
+.login {
+    background: url("../images/backgroundlogin.jpg");
+    height: 600px;
+    background-repeat:no-repeat;
+    background-size: 100%;
+    padding: 60px;
+    display:flex;
+}
+
+.form-wrapper{
+    /*height: 350px;*/
+    width: 350px;
+    background-color: #FFC107;
+    border-radius: 20px;
+    margin: auto;
+
+    border: 3px solid black;
+    padding: 15px;
+
+}
