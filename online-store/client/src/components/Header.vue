@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <nav class="navbar sticky-top bg-warning navbar-expand-lg navbar-light">
           <div class="logo-clickable nv-bar">
-            <router-link to="landing.html"><img src="../assets/images/logo.png" alt="logo" /></router-link>
+            <router-link to="/"><img src="../assets/images/logo.png" alt="logo" /></router-link>
             <button
               class="navbar-toggler"
               type="button"
@@ -55,7 +55,7 @@
                 <a class="nav-link" href="carrinho.html">Carrinho</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Entrar</a>
+                <router-link to='login' class="nav-link" >Entrar</router-link>
               </li>
               <li class="nav-item">
                 <router-link to='register' class="nav-link" >Cadastro</router-link>
