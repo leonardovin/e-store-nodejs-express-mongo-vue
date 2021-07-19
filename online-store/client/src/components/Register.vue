@@ -53,7 +53,7 @@
           />
         </div>
         <button @click="register" type="submit" class="btn btn-primary">
-          Entrar
+          Cadastrar
         </button>
       </form>
     </div>
@@ -74,14 +74,18 @@ export default {
   },
   methods: {
     async register () {
-      const response = await AuthenticationService.register({
-        name: this.name,
-        phone: this.phone,
-        address: this.address,
-        email: this.email,
-        password: this.password
-      })
-      console.log(response.data)
+      try {
+        const response = await AuthenticationService.register({
+            name: this.name,
+            phone: this.phone,
+            address: this.address,
+            email: this.email,
+            password: this.password
+        })
+        console.log(response.data)
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   }
 }
