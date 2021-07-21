@@ -52,7 +52,7 @@
             </button>
             <ul class="navbar-nav mr-auto" id="navbar-items-end">
               <li class="nav-item">
-                <router-link to='carrinho' class="nav-link" >Carrinho</router-link>
+                <router-link to='cart' class="nav-link" >Carrinho</router-link>
               </li>
               <li class="nav-item">
                 <router-link to='login' class="nav-link" >Entrar</router-link>

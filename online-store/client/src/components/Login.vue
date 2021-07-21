@@ -28,6 +28,7 @@
       </div>
     </div>
 </template>
+
 <script>
 import AuthenticationService from '@/services/auth-service'
 export default {
@@ -52,5 +53,6 @@ export default {
   }
 }
 </script>
+
 <style lang="">
 </style>

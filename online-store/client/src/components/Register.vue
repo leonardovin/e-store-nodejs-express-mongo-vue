@@ -55,6 +55,7 @@
         <button @click="register" type="submit" class="btn btn-primary">
           Cadastrar
         </button>
+        <div class= "error" v-html = "error"/>
       </form>
     </div>
   </div>
@@ -69,7 +70,8 @@ export default {
       phone: '',
       address: '',
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   },
   methods: {
@@ -91,4 +93,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.error{
+    color: red;
+}
+</style>

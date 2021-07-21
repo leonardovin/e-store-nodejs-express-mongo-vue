@@ -1,6 +1,5 @@
 <template lang="">
 <div class="mid-section-wrapper">
-
       <!--PERFIL-START-->
       <div class="client">
         <div class="infos">
@@ -14,7 +13,7 @@
           </div>
 
         <div id="foto">
-          <img src="../images/slide4.jpeg" alt="oculos">
+          <img src="../assets/images/slide4.jpeg" alt="oculos">
         </div>
       </div>
       <!--PERFIL END-->
@@ -24,13 +23,11 @@
       <!--PRODUCT SHOWCASE START-->
       <div class="container product-block">
         <!--product list-->
-        
         <div class="container product-area">
           <div class="row">
-            
             <div class="col product-frame">
               <div class="imgbox">
-                <img width="162" height="146" src="../images/oculos1.jpg" alt="productimg">
+                <img width="162" height="146" src="../assets/images/oculos1.jpg" alt="productimg">
               </div>
               <div class="contentbox">
                 <h3>Product Name</h3>
@@ -38,10 +35,9 @@
                 <a href="#" class="buybtn">Comprar</a>
               </div>
             </div>
-            
             <div class="col product-frame">
               <div class="imgbox">
-                <img width="162" height="146" src="../images/oculos1.jpg" alt="productimg">
+                <img width="162" height="146" src="../assets/images/oculos1.jpg" alt="productimg">
               </div>
               <div class="contentbox">
                 <h3>Product Name</h3>
@@ -49,10 +45,9 @@
                 <a href="#" class="buybtn">Comprar</a>
               </div>
             </div>
-            
             <div class="col product-frame">
               <div class="imgbox">
-                <img width="162" height="146" src="../images/oculos1.jpg" alt="productimg">
+                <img width="162" height="146" src="../assets/images/oculos1.jpg" alt="productimg">
               </div>
               <div class="contentbox">
                 <h3>Product Name</h3>
@@ -64,7 +59,7 @@
           <div class="row">
             <div class="col product-frame">
               <div class="imgbox">
-                <img width="162" height="146" src="../images/oculos1.jpg" alt="productimg">
+                <img width="162" height="146" src="../assets/images/oculos1.jpg" alt="productimg">
               </div>
               <div class="contentbox">
                 <h3>Product Name</h3>
@@ -74,7 +69,7 @@
             </div>
             <div class="col product-frame">
               <div class="imgbox">
-                <img width="162" height="146" src="../images/oculos1.jpg" alt="productimg">
+                <img width="162" height="146" src="../assets/images/oculos1.jpg" alt="productimg">
               </div>
               <div class="contentbox">
                 <h3>Product Name</h3>
@@ -84,7 +79,7 @@
             </div>
             <div class="col product-frame">
               <div class="imgbox">
-                <img width="162" height="146" src="../images/oculos1.jpg" alt="productimg">
+                <img width="162" height="146" src="../assets/images/oculos1.jpg" alt="productimg">
               </div>
               <div class="contentbox">
                 <h3>Product Name</h3>
@@ -93,14 +88,13 @@
               </div>
             </div>
           </div>
-         
         </div>
       </div>
       <!--PRODUCT SHOWCASE END-->
     </div>
 </template>
 <script>
-export default { 
+export default {
 }
 </script>
 <style lang="">

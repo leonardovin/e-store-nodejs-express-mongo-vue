@@ -12,5 +12,34 @@ module.exports = {
                 error: 'Esse email ja está em uso'
             })
         }
+    },
+    async login (req,res) {
+        const {email, password} = req.body
+        try{
+            var user = await User.findOne ({
+                where: {
+                    email: email
+                }
+            })
+            if (!user) {
+                return res.status(403).send ({
+                    error: 'login info incorrect'
+                })
+            }    
+            const isPasswordValid = password === user.password
+            if (!isPasswordValid) {
+                return res.status(403).send ({
+                    error: 'password incorrect'
+                })
+            }
+            const userJson = user.toJson()
+            res.send({
+                user: userJson
+            })
+        }  catch (err){
+            res.status(403).send({
+                error: 'login info incorrect'
+            })
+        }
     }
 }
