@@ -42,7 +42,7 @@ export default {
   methods: {
     async login () {
     try {
-        await AuthenticationService.login({
+        const response = await AuthenticationService.login({
             email: this.email,
             password: this.password
         })
