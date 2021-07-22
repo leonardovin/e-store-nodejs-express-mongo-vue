@@ -23,6 +23,10 @@ const schema = new Schema({
     password:{
         type: String,
         required: true
+    },
+    admin: {
+        type: Boolean,
+        required: false
     }
 })
 

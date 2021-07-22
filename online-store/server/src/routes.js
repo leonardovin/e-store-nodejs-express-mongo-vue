@@ -1,5 +1,6 @@
 const authController = require("./controllers/auth-controller")
 //const authControllerPolicy = require('./policies/authControllerPolicy')
+const prodController = require("./controllers/products-controller")
 
 module.exports = (app) =>{
     //register
@@ -9,4 +10,7 @@ module.exports = (app) =>{
     //login
     app.post('/login',
         authController.login)
+    //criar produto
+    app.post('/products',
+        prodController.post)
 }
