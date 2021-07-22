@@ -7,13 +7,22 @@ import './assets/css/index.css'
 import './assets/css/login.css'
 import './assets/css/product-card.css'
 import './assets/css/product.css'
+import { sync } from 'vuex-router-sync'
+import store from '@/store/store'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
+
+Vue.use(Vuetify)
+
+sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

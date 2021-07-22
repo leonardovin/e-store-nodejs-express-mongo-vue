@@ -51,15 +51,22 @@
               Buscar
             </button>
             <ul class="navbar-nav mr-auto" id="navbar-items-end">
-              <li class="nav-item">
-                <router-link to='cart' class="nav-link" >Carrinho</router-link>
+              <li class="nav-item" >
+                <a @click="cartRoute" class="nav-link" >Carrinho</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if= "!$store.state.isUserLoggedIn">
                 <router-link to='login' class="nav-link" >Entrar</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if = "!$store.state.isUserLoggedIn">
                 <router-link to='register' class="nav-link" >Cadastro</router-link>
               </li>
+            <v-btn
+            v-if = "$store.state.isUserLoggedIn"
+            @click="logout"
+            class="nav-link">
+            Sair
+            </v-btn>
+
             </ul>
           </div>
         </nav>
@@ -69,7 +76,20 @@
 </template>
 <script>
 export default {
-
+    methods: {
+        logout () {
+            this.$store.dispatch('setToken', null)
+            this.$store.dispatch('setUser', null)
+            this.$router.push('/')
+        },
+        cartRoute () {
+            if (!this.$store.state.isUserLoggedIn) {
+                this.$router.push('/login')
+            } else {
+                this.$router.push('/cart')
+            }
+        }
+    }
 }
 </script>
 <style lang="">
