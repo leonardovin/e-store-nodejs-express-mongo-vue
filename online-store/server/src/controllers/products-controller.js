@@ -1,7 +1,7 @@
 const Product = require('../models/product')
 
 module.exports = {
-    //register
+    //add product
     async post (req, res) {
         const product = new Product(req.body)
         try {
@@ -11,6 +11,30 @@ module.exports = {
           res.status(500).send({
             error: 'an error has occured trying to create the product'
           })
+        }
+    },
+    //show a product
+    async show (req, res) {
+        try {
+          const product = await Product.findById(req.params.productId)
+          res.send(product)
+        } catch (err) {
+          res.status(500).send({
+            error: 'an error has occured trying to show the products'
+          })
+        }
+    },
+    //show a list of products
+    async index (req, res) {
+        try{
+            const products = await Product.find({
+                active: true
+            }, );
+            res.send(products);
+        } catch (err) {
+            res.status(500).send({
+              error: 'an error has occured trying to get all the products'
+            })
         }
     }
 }

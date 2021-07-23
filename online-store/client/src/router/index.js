@@ -4,6 +4,10 @@ import Landing from '@/components/Landing'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Cart from '@/components/Carrinho'
+import ProductPanel from '@/components/ProductPanel'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
 
 Vue.use(Router)
 
@@ -30,9 +34,9 @@ export default new Router({
       component: Cart
     },
     {
-      path: '/products',
-      name: 'products',
-      component: ProductList
+      path: '/productpanel',
+      name: 'prodpanel',
+      component: ProductPanel
     }
   ]
 })

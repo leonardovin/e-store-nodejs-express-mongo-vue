@@ -10,7 +10,11 @@ module.exports = (app) =>{
     //login
     app.post('/login',
         authController.login)
-    //criar produto
+   
+    //post products
     app.post('/products',
         prodController.post)
+    //get products
+    app.get('/products',
+        prodController.index)
 }

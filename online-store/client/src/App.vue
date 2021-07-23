@@ -1,11 +1,9 @@
 <template>
-  <v-app>
     <div id="app">
         <page-header/>
         <router-view/>
         <page-footer/>
     </div>
-  </v-app>
 </template>
 
 <script>

@@ -14,9 +14,9 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify)
-
 sync(store, router)
+
+Vue.use(Vuetify)
 
 /* eslint-disable no-new */
 new Vue({

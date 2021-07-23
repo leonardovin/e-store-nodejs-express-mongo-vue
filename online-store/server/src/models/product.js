@@ -30,6 +30,14 @@ const schema = new Schema({
         type: String,
         required: true,
         trim: true
+    },
+    category: {
+        type: Number, //0 de gral 1 de sol
+        required: true
+    },
+    quantity: {
+        type: Number,
+        required: true
     }
 });
 
