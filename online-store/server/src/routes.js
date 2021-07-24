@@ -17,4 +17,10 @@ module.exports = (app) =>{
     //get products
     app.get('/products',
         prodController.index)
+    //get a product
+    app.get('/products/:id',
+        prodController.show)
+    //get products by category
+    app.get('/products',
+        prodController.indexByCat)
 }

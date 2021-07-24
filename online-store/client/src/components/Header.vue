@@ -35,14 +35,30 @@
                 Categorias
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item"
-                 @click="navigateTo({name: 'products'})"
-                 style="cursor: pointer"
+                <a
+                  class="dropdown-item"
+                  @click="
+                    navigateTo({
+                      name: 'products',
+                      params: {
+                        category: 'Sol'
+                      }
+                    })
+                  "
+                  style="cursor: pointer"
                   >Oculos de Sol</a
                 >
-                <a class="dropdown-item"
-                 @click="navigateTo({name: 'products'})"
-                 style="cursor: pointer"
+                <a
+                  class="dropdown-item"
+                  @click="
+                    navigateTo({
+                      name: 'products',
+                      params: {
+                        category: 'Gral'
+                      }
+                    })
+                  "
+                  style="cursor: pointer"
                   >Oculos de Gral</a
                 >
                 <div class="dropdown-divider"></div>
@@ -61,22 +77,29 @@
             Buscar
           </button>
           <ul class="navbar-nav mr-auto" id="navbar-items-end">
-            <li class = "nav-item"
-            style="cursor: pointer"
+            <li
+              class="nav-item"
+              style="cursor: pointer"
               v-if="!$store.state.isUserAdmin"
               @click="cartRoute"
             >
               <div class="nav-link"> Carrinho </div>
             </li>
 
-            <li class="nav-item" v-if="!$store.state.isUserLoggedIn"
-            style="cursor: pointer"
-            @click= "navigateTo({name: 'login'})">
+            <li
+              class="nav-item"
+              v-if="!$store.state.isUserLoggedIn"
+              style="cursor: pointer"
+              @click="navigateTo({name: 'login'})"
+            >
               <div class="nav-link"> Entrar </div>
             </li>
-            <li class="nav-item" v-if="!$store.state.isUserLoggedIn"
-            style="cursor: pointer"
-            @click="navigateTo({name: 'create-product'})">
+            <li
+              class="nav-item"
+              v-if="!$store.state.isUserLoggedIn"
+              style="cursor: pointer"
+              @click="navigateTo({name: 'create-product'})"
+            >
               <div class="nav-link"> Cadastro </div>
             </li>
             <v-btn
@@ -96,19 +119,19 @@
 <script>
 export default {
   methods: {
-    logout () {
+    logout() {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push('/')
     },
-    cartRoute () {
+    cartRoute() {
       if (!this.$store.state.isUserLoggedIn) {
         this.$router.push('/login')
       } else {
         this.$router.push('/cart')
       }
     },
-        navigateTo (route) {
+    navigateTo(route) {
       this.$router.push(route)
     }
   }

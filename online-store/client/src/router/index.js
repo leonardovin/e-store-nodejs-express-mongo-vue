@@ -46,7 +46,7 @@ export default new Router({
             component: CreateProduct
         },
         {
-            path: '/products/:id',
+            path: '/products/:productId',
             name: 'product-page',
             component: ProductPage
         }

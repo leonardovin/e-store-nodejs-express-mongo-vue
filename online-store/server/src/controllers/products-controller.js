@@ -17,7 +17,8 @@ module.exports = {
     //show a product
     async show (req, res) {
         try {
-          const product = await Product.findById(req.params.productId)
+          const product = await Product.findById(req.params.id)
+          console.log(product)
           res.send(product)
         } catch (err) {
           res.status(500).send({
@@ -30,6 +31,19 @@ module.exports = {
         try{
             const products = await Product.find({
                 active: true
+            },null, {limit: 3} );
+            res.send(products);
+        } catch (err) {
+            res.status(500).send({
+              error: 'an error has occured trying to get all the products'
+            })
+        }
+    },
+    async indexByCat (req, res) {
+        try{
+            const products = await Product.find({
+                active: true,
+                category: req.params.category
             },null, {limit: 3} );
             res.send(products);
         } catch (err) {

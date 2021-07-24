@@ -8,7 +8,6 @@ const schema = new Schema({
         type: String,
         required: true,
         unique: true,
-        trim: true
     },
     description: {
         type: String,
