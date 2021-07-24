@@ -19,6 +19,9 @@ module.exports = {
         "indent": "off",
         "quotes": "off",
         "comma-dangle": "off",
-        "semi" : "off"
+        "semi" : "off",
+        "space-before-blocks" : "off",
+        "func-call-spacing" : "off",
+        "key-spacing" : "off"
     }
 };

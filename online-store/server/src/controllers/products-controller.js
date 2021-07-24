@@ -6,9 +6,10 @@ module.exports = {
         const product = new Product(req.body)
         try {
           await product.save()
+          console.log(product)
           res.send(product)
         } catch (err) {
-          res.status(500).send({
+          res.status(400).send({
             error: 'an error has occured trying to create the product'
           })
         }
@@ -29,7 +30,7 @@ module.exports = {
         try{
             const products = await Product.find({
                 active: true
-            }, );
+            },null, {limit: 3} );
             res.send(products);
         } catch (err) {
             res.status(500).send({

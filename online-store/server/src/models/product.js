@@ -7,6 +7,7 @@ const schema = new Schema({
     title: {
         type: String,
         required: true,
+        unique: true,
         trim: true
     },
     description: {
@@ -32,7 +33,7 @@ const schema = new Schema({
         trim: true
     },
     category: {
-        type: Number, //0 de gral 1 de sol
+        type: String, //0 de gral 1 de sol
         required: true
     },
     quantity: {

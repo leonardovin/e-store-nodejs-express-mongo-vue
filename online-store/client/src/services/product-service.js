@@ -1,8 +1,8 @@
 import Api from '@/services/Api'
 
 export default {
-  index (search) {
-    return Api().get('products')
+  index (limit) {
+    return Api().get('products', limit)
   },
   show (productId) {
     return Api().get(`products/${productId}`)

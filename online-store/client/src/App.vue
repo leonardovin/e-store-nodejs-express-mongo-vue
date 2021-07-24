@@ -1,9 +1,9 @@
 <template>
-    <div id="app">
-        <page-header/>
-        <router-view/>
-        <page-footer/>
-    </div>
+  <div id="app">
+    <page-header/>
+    <router-view/>
+    <page-footer/>
+  </div>
 </template>
 
 <script>
@@ -12,8 +12,8 @@ import PageFooter from '@/components/Footer.vue'
 export default {
   name: 'App',
   components: {
-      PageHeader,
-      PageFooter
+    PageHeader,
+    PageFooter
   }
 }
 </script>

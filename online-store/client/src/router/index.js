@@ -4,7 +4,9 @@ import Landing from '@/components/Landing'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Cart from '@/components/Carrinho'
-import ProductPanel from '@/components/ProductPanel'
+import Products from '@/components/Products'
+import CreateProduct from '@/components/CreateProduct'
+import ProductPage from '@/components/ProductPage'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
@@ -12,31 +14,41 @@ Vue.use(Vuex)
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'landing',
-      component: Landing
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: Register
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/cart',
-      name: 'cart',
-      component: Cart
-    },
-    {
-      path: '/productpanel',
-      name: 'prodpanel',
-      component: ProductPanel
-    }
-  ]
+    routes: [
+        {
+            path: '/',
+            name: 'landing',
+            component: Landing
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: Register
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
+        },
+        {
+            path: '/cart',
+            name: 'cart',
+            component: Cart
+        },
+        {
+            path: '/products',
+            name: 'products',
+            component: Products
+        },
+        {
+            path: '/products/create',
+            name: 'create-product',
+            component: CreateProduct
+        },
+        {
+            path: '/products/:id',
+            name: 'product-page',
+            component: ProductPage
+        }
+    ]
 })
