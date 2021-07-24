@@ -12,10 +12,12 @@
 
 <script>
 import ProdPanel from '@/components/ProductPanel'
+import ProdPanelCat from '@/components/ProductsCat'
 
 export default {
   components: {
-    ProdPanel
+    ProdPanel,
+    ProdPanelCat
   },
   methods: {
     navigateTo (route) {

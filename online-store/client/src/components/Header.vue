@@ -39,10 +39,8 @@
                   class="dropdown-item"
                   @click="
                     navigateTo({
-                      name: 'products',
-                      params: {
-                        category: 'Sol'
-                      }
+                      name: 'products-cat',
+                      params: {productCategory: 'Sol'}
                     })
                   "
                   style="cursor: pointer"
@@ -52,16 +50,24 @@
                   class="dropdown-item"
                   @click="
                     navigateTo({
-                      name: 'products',
-                      params: {
-                        category: 'Gral'
-                      }
+                      name: 'products-cat',
+                      params: {productCategory: 'Gral'}
                     })
                   "
                   style="cursor: pointer"
                   >Oculos de Gral</a
                 >
                 <div class="dropdown-divider"></div>
+                <a
+                  class="dropdown-item"
+                  @click="
+                    navigateTo({
+                      name: 'products'
+                    })
+                  "
+                  style="cursor: pointer"
+                  >Todos</a
+                >
               </div>
             </li>
           </ul>
@@ -98,7 +104,7 @@
               class="nav-item"
               v-if="!$store.state.isUserLoggedIn"
               style="cursor: pointer"
-              @click="navigateTo({name: 'create-product'})"
+              @click="navigateTo({name: 'register'})"
             >
               <div class="nav-link"> Cadastro </div>
             </li>

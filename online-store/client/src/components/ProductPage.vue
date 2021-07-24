@@ -1,9 +1,9 @@
 <template lang="">
   <div class="mid-section-wrapperflex">
     <div class="check-block">
-      <div  v-if="product != null" class="product-frame">
+      <div v-if="product != null" class="product-frame">
         <div class="imgbox">
-          <img  :src="product.image" width="200" alt="productimg" />
+          <img :src="product.image" width="200" alt="productimg" />
         </div>
         <div class="contentbox">
           <h3>{{ product.title }}</h3>
@@ -14,10 +14,15 @@
         <h3></h3>
         <div class="quantity-input">
           Quantidade:
-          <input  type="number" />
+          <input type="number" />
         </div>
         <h2></h2>
-        <a @click="cartRoute()" class="buybtn-inanimate">Adicionar ao carrinho</a>
+        <br />
+        <div class="danger-alert" v-html="error" />
+        <br />
+        <a @click="cartRoute()" class="buybtn-inanimate"
+          >Adicionar ao carrinho</a
+        >
       </div>
     </div>
   </div>
@@ -28,7 +33,8 @@ import ProdService from '@/services/product-service'
 export default {
   data() {
     return {
-      product: null
+      product: null,
+      error: null
     }
   },
   methods: {
@@ -38,8 +44,10 @@ export default {
     cartRoute() {
       if (!this.$store.state.isUserLoggedIn) {
         this.$router.push('/login')
-      } else {
+      } else if (!this.$store.state.isUserAdmin) {
         this.$router.push('/cart')
+      } else {
+        alert('ADMINS CANT MAKE PURCHASES')
       }
     }
   },

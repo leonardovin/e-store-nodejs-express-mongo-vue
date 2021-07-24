@@ -60,7 +60,7 @@
     </div>
 </template>
 <script>
-import ProdPanel from '@/components/ProductPanel'
+import ProdPanel from '@/components/ProductPanelMP'
 
 export default {
     components: {

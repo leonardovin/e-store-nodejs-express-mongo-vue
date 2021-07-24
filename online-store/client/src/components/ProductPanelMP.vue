@@ -45,7 +45,7 @@ export default {
     }
   },
   async mounted() {
-    this.products = (await ProdService.index()).data
+    this.products = (await ProdService.indexMP()).data
   }
 }
 </script>

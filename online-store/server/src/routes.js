@@ -2,7 +2,7 @@ const authController = require("./controllers/auth-controller")
 //const authControllerPolicy = require('./policies/authControllerPolicy')
 const prodController = require("./controllers/products-controller")
 
-module.exports = (app) =>{
+module.exports = (app) => {
     //register
     app.post('/register',
         //authControllerPolicy.register,  TODO
@@ -10,17 +10,20 @@ module.exports = (app) =>{
     //login
     app.post('/login',
         authController.login)
-   
+
     //post products
     app.post('/products',
         prodController.post)
     //get products
     app.get('/products',
         prodController.index)
+    //get products landing page
+    app.get('/',
+        prodController.indexMP)
     //get a product
     app.get('/products/:id',
         prodController.show)
     //get products by category
-    app.get('/products',
+    app.get('/products/category/:category',
         prodController.indexByCat)
 }

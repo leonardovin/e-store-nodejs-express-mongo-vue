@@ -45,7 +45,8 @@ export default {
     }
   },
   async mounted() {
-    this.products = (await ProdService.index()).data
+    const productCategory = this.$store.state.route.params.productCategory
+    this.products = (await ProdService.indexByCat(productCategory)).data
   }
 }
 </script>

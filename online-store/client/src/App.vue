@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <page-header/>
-    <router-view/>
-    <page-footer/>
+    <div class="mid-section-wrapper">
+     <router-view/>
+    </div>
+    <page-footer id="footer"></page-footer>
   </div>
 </template>
 

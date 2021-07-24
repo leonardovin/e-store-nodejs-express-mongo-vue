@@ -2,53 +2,68 @@ const Product = require('../models/product')
 
 module.exports = {
     //add product
-    async post (req, res) {
+    async post(req, res) {
         const product = new Product(req.body)
         try {
-          await product.save()
-          console.log(product)
-          res.send(product)
+            await product.save()
+            console.log(product)
+            res.send(product)
         } catch (err) {
-          res.status(400).send({
-            error: 'an error has occured trying to create the product'
-          })
-        }
-    },
-    //show a product
-    async show (req, res) {
-        try {
-          const product = await Product.findById(req.params.id)
-          console.log(product)
-          res.send(product)
-        } catch (err) {
-          res.status(500).send({
-            error: 'an error has occured trying to show the products'
-          })
-        }
-    },
-    //show a list of products
-    async index (req, res) {
-        try{
-            const products = await Product.find({
-                active: true
-            },null, {limit: 3} );
-            res.send(products);
-        } catch (err) {
-            res.status(500).send({
-              error: 'an error has occured trying to get all the products'
+            res.status(400).send({
+                error: 'an error has occured trying to create the product'
             })
         }
     },
-    async indexByCat (req, res) {
-        try{
+    //show a product
+    async show(req, res) {
+        try {
+            const product = await Product.findById(req.params.id)
+            console.log(product)
+            res.send(product)
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to show the products'
+            })
+        }
+    },
+    //show a list of products
+    async index(req, res) {
+        try {
             const products = await Product.find({
-                active: true,
-                category: req.params.category
-            },null, {limit: 3} );
+                active: true
+            }, null, );
             res.send(products);
         } catch (err) {
             res.status(500).send({
-              error: 'an error has occured trying to get all the products'
+                error: 'an error has occured trying to get all the products'
+            })
+        }
+    },
+    //show a list of products
+    async indexMP(req, res) {
+        try {
+            const products = await Product.find({
+                active: true
+            }, null, { limit: 3 });
+            res.send(products);
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to get all the products'
+            })
+        }
+    },
+    //list by category
+    async indexByCat(req, res) {
+        console.log(req.params.category)
+        try {
+            const products = await Product.find({
+                active: true,
+                category: req.params.category
+            }, null);
+            res.send(products);
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to get all the products by category'
             })
         }
     }

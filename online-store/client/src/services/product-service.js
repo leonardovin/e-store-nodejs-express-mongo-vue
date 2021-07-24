@@ -4,8 +4,12 @@ export default {
     index(limit) {
         return Api().get('products', limit)
     },
+    indexMP(limit) {
+        return Api().get('/', limit)
+    },
     indexByCat(productCategory) {
-        return Api().get('products', productCategory)
+        console.log(productCategory)
+        return Api().get(`products/category/${productCategory}`)
     },
     show(productId) {
         return Api().get(`products/${productId}`)

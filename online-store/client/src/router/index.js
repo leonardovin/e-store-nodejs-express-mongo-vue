@@ -7,6 +7,7 @@ import Cart from '@/components/Carrinho'
 import Products from '@/components/Products'
 import CreateProduct from '@/components/CreateProduct'
 import ProductPage from '@/components/ProductPage'
+import ProductsCat from '@/components/ProductsCat'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
@@ -34,6 +35,11 @@ export default new Router({
             path: '/cart',
             name: 'cart',
             component: Cart
+        },
+        {
+            path: '/products/category/:productCategory',
+            name: 'products-cat',
+            component: ProductsCat
         },
         {
             path: '/products',
