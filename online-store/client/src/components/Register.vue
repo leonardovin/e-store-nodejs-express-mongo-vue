@@ -55,6 +55,7 @@
         <button @click="register" type="submit" class="btn btn-primary">
           Cadastrar
         </button>
+        <div class= "error" v-html = "error"/>
       </form>
     </div>
   </div>
@@ -69,26 +70,32 @@ export default {
       phone: '',
       address: '',
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   },
   methods: {
     async register () {
-      try {
-        const response = await AuthenticationService.register({
+        try {
+            const response = await AuthenticationService.register({
             name: this.name,
             phone: this.phone,
             address: this.address,
             email: this.email,
             password: this.password
-        })
-        console.log(response.data)
-      } catch (error) {
-        this.error = error.response.data.error
-      }
+            })
+            this.$store.dispatch('setToken', response.data.token)
+            this.$store.dispatch('setUser', response.data.user)
+        } catch (error) {
+            this.error = error.response.data.error
+        }
     }
   }
 }
 </script>
 
-<style></style>
+<style scoped>
+.error{
+    color: red;
+}
+</style>

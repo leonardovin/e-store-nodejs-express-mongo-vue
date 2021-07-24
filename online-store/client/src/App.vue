@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <page-header/>
-    <router-view/>
-    <page-footer/>
+    <div class="mid-section-wrapper">
+     <router-view :key="$route.fullPath"></router-view>
+    </div>
+    <page-footer id="footer"></page-footer>
   </div>
 </template>
 
@@ -12,8 +14,8 @@ import PageFooter from '@/components/Footer.vue'
 export default {
   name: 'App',
   components: {
-      PageHeader,
-      PageFooter
+    PageHeader,
+    PageFooter
   }
 }
 </script>
@@ -25,6 +27,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

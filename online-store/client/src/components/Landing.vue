@@ -52,82 +52,24 @@
       <!--STORE SLIDESHOW END-->
       <!--PRODUCT SHOWCASE START-->
       <div class="container product-block">
-        <div class="container product-area">
-          <div class="row justify-content-around">
-              <div class="col-6 col-md-4 product-frame">
-                <div class="imgbox">
-                  <img width="200"  src="../assets/images/oculosnobg.png" alt="productimg">
-                </div>
-                <div class="contentbox">
-                  <h3>Product Name</h3>
-                  <h2 class="price">$69.99</h2>
-                  <a href="product-checkpage.html" class="buybtn">Comprar</a>
-                </div>
-              </div>
-
-            <div class="col-6 col-md-4 product-frame">
-              <div class="imgbox">
-                <img width="200"  src="../assets/images/oculosnobg.png" alt="productimg">
-              </div>
-              <div class="contentbox">
-                <h3>Product Name</h3>
-                <h2 class="price">$69.99</h2>
-                <a href="product-checkpage.html" class="buybtn">Comprar</a>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 product-frame">
-              <div class="imgbox">
-                <img width="200"  src="../assets/images/oculosnobg.png" alt="productimg">
-              </div>
-              <div class="contentbox">
-                <h3>Product Name</h3>
-                <h2 class="price">$69.99</h2>
-                <a href="product-checkpage.html" class="buybtn">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-around">
-            <div class="col-6 col-md-4 product-frame">
-              <div class="imgbox">
-                <img width="200"  src="../assets/images/oculosnobg.png" alt="productimg">
-              </div>
-              <div class="contentbox">
-                <h3>Product Name</h3>
-                <h2 class="price">$69.99</h2>
-                <a href="product-checkpage.html" class="buybtn">Comprar</a>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 product-frame">
-              <div class="imgbox">
-                <img width="200"  src="../assets/images/oculosnobg.png" alt="productimg">
-              </div>
-              <div class="contentbox">
-                <h3>Product Name</h3>
-                <h2 class="price">$69.99</h2>
-                <a href="product-checkpage.html" class="buybtn">Comprar</a>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 product-frame">
-              <div class="imgbox">
-                <img width="200"  src="../assets/images/oculosnobg.png" alt="productimg">
-              </div>
-              <div class="contentbox">
-                <h3>Product Name</h3>
-                <h2 class="price">$69.99</h2>
-                <a href="product-checkpage.html" class="buybtn">Comprar</a>
-              </div>
-            </div>
-          </div>
+          <prod-panel></prod-panel>
         </div>
+        <div>
       </div>
       <!--PRODUCT SHOWCASE END-->
     </div>
 </template>
 <script>
-export default {
+import ProdPanel from '@/components/ProductPanelMP'
 
+export default {
+    components: {
+        ProdPanel
+    }
 }
 </script>
-<style lang="">
-
+<style scoped lang="">
+.container .product-block{
+    display: inline-flex;
+}
 </style>
