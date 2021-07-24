@@ -41,7 +41,6 @@ export default {
   methods: {
     navigateTo(route) {
       this.$router.push(route)
-      console.log(this.params)
     }
   },
   async mounted() {

@@ -2,7 +2,7 @@
   <div id="app">
     <page-header/>
     <div class="mid-section-wrapper">
-     <router-view/>
+     <router-view :key="$route.fullPath"></router-view>
     </div>
     <page-footer id="footer"></page-footer>
   </div>

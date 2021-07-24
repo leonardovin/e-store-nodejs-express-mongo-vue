@@ -14,7 +14,7 @@
         <h3></h3>
         <div class="quantity-input">
           Quantidade:
-          <input type="number" />
+          <input v-model="item.quantity" type="number" />
         </div>
         <h2></h2>
         <br />
@@ -34,6 +34,10 @@ export default {
   data() {
     return {
       product: null,
+      item: {
+        quantity: '',
+        productId: ''
+      },
       error: null
     }
   },
@@ -41,10 +45,14 @@ export default {
     navigateTo(route) {
       this.$router.push(route)
     },
-    cartRoute() {
+    async cartRoute() {
       if (!this.$store.state.isUserLoggedIn) {
         this.$router.push('/login')
       } else if (!this.$store.state.isUserAdmin) {
+        const user = this.$store.state.user
+        const item = this.item
+        item.productId = this.$store.state.route.params.productId
+        await ProdService.putCart(user, item)
         this.$router.push('/cart')
       } else {
         alert('ADMINS CANT MAKE PURCHASES')

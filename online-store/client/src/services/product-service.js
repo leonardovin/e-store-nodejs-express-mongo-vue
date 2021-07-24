@@ -19,5 +19,8 @@ export default {
     },
     put(product) {
         return Api().put(`products/${product.id}`, product)
+    },
+    putCart(user, item) {
+        return Api().put(`cart/${user._id}`, item)
     }
 }

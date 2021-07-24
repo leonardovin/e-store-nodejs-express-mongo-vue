@@ -68,6 +68,8 @@ export default {
     }
 }
 </script>
-<style lang="">
-
+<style scoped lang="">
+.container .product-block{
+    display: inline-flex;
+}
 </style>

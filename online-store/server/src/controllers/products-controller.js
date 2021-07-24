@@ -1,4 +1,5 @@
 const Product = require('../models/product')
+const User = require('../models/user')
 
 module.exports = {
     //add product
@@ -18,7 +19,6 @@ module.exports = {
     async show(req, res) {
         try {
             const product = await Product.findById(req.params.id)
-            console.log(product)
             res.send(product)
         } catch (err) {
             res.status(500).send({
@@ -31,7 +31,7 @@ module.exports = {
         try {
             const products = await Product.find({
                 active: true
-            }, null, );
+            }, null);
             res.send(products);
         } catch (err) {
             res.status(500).send({
@@ -44,7 +44,7 @@ module.exports = {
         try {
             const products = await Product.find({
                 active: true
-            }, null, { limit: 3 });
+            }, null, { limit: 8 });
             res.send(products);
         } catch (err) {
             res.status(500).send({
@@ -64,6 +64,23 @@ module.exports = {
         } catch (err) {
             res.status(500).send({
                 error: 'an error has occured trying to get all the products by category'
+            })
+        }
+    },
+    //put in cart
+    async putInCart(req, res) {
+        console.log("1",req.body)
+        console.log("2",req.params)
+        try {
+            const user = await User.findById(req.params.id)
+            user.cart = req.body
+            user.save().then(savedUser => {
+                savedUser === user; // true
+              });
+            res.send(req.body)
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to add to the cart'
             })
         }
     }

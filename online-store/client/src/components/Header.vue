@@ -35,27 +35,21 @@
                 Categorias
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a
+                <router-link
                   class="dropdown-item"
-                  @click="
-                    navigateTo({
-                      name: 'products-cat',
-                      params: {productCategory: 'Sol'}
-                    })
-                  "
-                  style="cursor: pointer"
-                  >Oculos de Sol</a
+                  :to="{
+                    name: 'products-cat',
+                    params: {productCategory: 'Sol'}
+                  }"
+                  >Oculos de Sol</router-link
                 >
-                <a
+                <router-link
                   class="dropdown-item"
-                  @click="
-                    navigateTo({
-                      name: 'products-cat',
-                      params: {productCategory: 'Gral'}
-                    })
-                  "
-                  style="cursor: pointer"
-                  >Oculos de Gral</a
+                  :to="{
+                    name: 'products-cat',
+                    params: {productCategory: 'Gral'}
+                  }"
+                  >Oculos de Gral</router-link
                 >
                 <div class="dropdown-divider"></div>
                 <a
@@ -124,6 +118,11 @@
 </template>
 <script>
 export default {
+  name: 'CategoryPage',
+  beforeRouteUpdate(to, from, next) {
+      this.adminCheck()
+      next()
+  },
   methods: {
     logout() {
       this.$store.dispatch('setToken', null)
@@ -140,6 +139,9 @@ export default {
     navigateTo(route) {
       this.$router.push(route)
     }
+  },
+  created() {
+
   }
 }
 </script>

@@ -26,4 +26,7 @@ module.exports = (app) => {
     //get products by category
     app.get('/products/category/:category',
         prodController.indexByCat)
+    //add product to a cart
+    app.put('/cart/:id',
+        prodController.putInCart)
 }
