@@ -14,14 +14,18 @@
         <h3></h3>
         <div class="quantity-input">
           Quantidade:
-          <input v-model="item.quantity" type="number" />
+          <input v-model="item.quantity" type="number" placeholder="1" />
         </div>
-        <h2></h2>
+        <h2>R$: {{ product.price * item.quantity }}</h2>
         <br />
         <div class="danger-alert" v-html="error" />
         <br />
-        <a @click="cartRoute()" class="buybtn-inanimate"
+        <a @click="cartRouteNoRD()" class="buybtn-inanimate"
           >Adicionar ao carrinho</a
+        >
+        <br/>
+        <a @click="cartRoute()" class="buybtn-inanimate"
+          >Checkout</a
         >
       </div>
     </div>
@@ -35,7 +39,7 @@ export default {
     return {
       product: null,
       item: {
-        quantity: '',
+        quantity: '1',
         productId: ''
       },
       error: null
@@ -57,8 +61,21 @@ export default {
       } else {
         alert('ADMINS CANT MAKE PURCHASES')
       }
+    },
+    async cartRouteNoRD() {
+      if (!this.$store.state.isUserLoggedIn) {
+        this.$router.push('/login')
+      } else if (!this.$store.state.isUserAdmin) {
+        const user = this.$store.state.user
+        const item = this.item
+        item.productId = this.$store.state.route.params.productId
+        await ProdService.putCart(user, item)
+      } else {
+        alert('ADMINS CANT MAKE PURCHASES')
+      }
     }
   },
+
   async mounted() {
     const productId = this.$store.state.route.params.productId
     this.product = (await ProdService.show(productId)).data

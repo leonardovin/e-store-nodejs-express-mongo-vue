@@ -119,10 +119,6 @@
 <script>
 export default {
   name: 'CategoryPage',
-  beforeRouteUpdate(to, from, next) {
-      this.adminCheck()
-      next()
-  },
   methods: {
     logout() {
       this.$store.dispatch('setToken', null)
@@ -139,9 +135,6 @@ export default {
     navigateTo(route) {
       this.$router.push(route)
     }
-  },
-  created() {
-
   }
 }
 </script>
