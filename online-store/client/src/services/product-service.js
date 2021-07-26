@@ -4,6 +4,9 @@ export default {
     index(limit) {
         return Api().get('products', limit)
     },
+    indexCart(user) {
+        return Api().get(`cart/${user._id}`, user)
+    },
     indexMP(limit) {
         return Api().get('/', limit)
     },
@@ -22,5 +25,8 @@ export default {
     },
     putCart(user, item) {
         return Api().put(`cart/${user._id}`, item)
+    },
+    putProd(user, item) {
+        return Api().put(`cart/product/${user._id}`, item)
     }
 }

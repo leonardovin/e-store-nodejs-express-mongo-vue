@@ -40,7 +40,7 @@ export default {
       product: null,
       item: {
         quantity: '1',
-        productId: ''
+        _id: ''
       },
       error: null
     }
@@ -55,7 +55,7 @@ export default {
       } else if (!this.$store.state.isUserAdmin) {
         const user = this.$store.state.user
         const item = this.item
-        item.productId = this.$store.state.route.params.productId
+        item._id = this.$store.state.route.params.productId
         await ProdService.putCart(user, item)
         this.$router.push('/cart')
       } else {
@@ -68,7 +68,7 @@ export default {
       } else if (!this.$store.state.isUserAdmin) {
         const user = this.$store.state.user
         const item = this.item
-        item.productId = this.$store.state.route.params.productId
+        item._id = this.$store.state.route.params.productId
         await ProdService.putCart(user, item)
       } else {
         alert('ADMINS CANT MAKE PURCHASES')

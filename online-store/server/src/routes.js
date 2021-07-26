@@ -26,7 +26,12 @@ module.exports = (app) => {
     //get products by category
     app.get('/products/category/:category',
         prodController.indexByCat)
-    //add product to a cart
+    //add product to a user's cart
     app.put('/cart/:id',
         prodController.putInCart)
+    app.put('/cart/product/:id',
+        prodController.updateProduct)
+    //get a users cart
+    app.get('/cart/:id',
+        prodController.getCart)
 }
