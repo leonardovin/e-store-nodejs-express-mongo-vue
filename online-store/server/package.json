@@ -18,10 +18,9 @@
     "nodemon": "^2.0.12",
     "joi": "^17.4.1",
     "mongoose": "^5.13.3",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
+    "morgan": "^1.10.0",
     "eslint": "^7.31.0",
-    "eslint-plugin-vue": "^7.14.0"
+    "eslint-plugin-vue": "^7.14.0",
+    "md5": "^2.3.0"
   }
 }
