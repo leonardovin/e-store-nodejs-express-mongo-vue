@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <div class="container product-area">
-      <a @click="limpar()" class="buybtn-inanimate">Limpar</a>
+      <a class="buybtn-inanimate">Limpar</a>
       <div class="row justify-content-around">
         <div
           v-for="(product, i) in products"
@@ -41,9 +41,6 @@ export default {
     },
     format(number) {
       return number.toFixed(2)
-    },
-    async limpar(){
-        await ProdService.clearCart(this.$store.state.user._id)
     }
   },
   async mounted() {

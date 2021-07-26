@@ -73,31 +73,12 @@ module.exports = {
         console.log("2", req.params)
         try {
             const user = await User.findById(req.params.id)
-            if(!user.cart){
-                console.log("here")
-                user.cart[0]._id = req.body.cart._id
-                user.cart[0].quantity = req.body.cart.quantity
-                user.save().then(savedUser => {
-                    savedUser === user; // true
-                });
-                res.send(req.body)
-            }
-            const index = user.cart.findIndex(o => o.id === req.body.cart._id)
-            console.log('here1')
-            if (!index) {
-                user.cart.push(req.body.cart)
-                console.log('here')
-                user.save().then(savedUser => {
-                    savedUser === user; // true
-                });
-                res.send(req.body)
-            } else {
-                user.cart[index].quantity = Number(user.cart[index].quantity) + Number(req.body.cart.quantity)
-                user.save().then(savedUser => {
-                    savedUser === user; // true
-                });
-                res.send(req.body)
-            }
+            user.cart.push(req.body)
+            console.log('here')
+            user.save().then(savedUser => {
+                savedUser === user; // true
+            });
+            res.send(req.body)
         } catch (err) {
             res.status(500).send({
                 error: 'an error has occured trying to add to the cartt'
@@ -136,9 +117,9 @@ module.exports = {
         try {
             const user = await User.findById(req.params.id)
             console.log(req.params)
-            
-            user.cart.forEach(function (o) {
-                o._id  = {}
+
+            user.cart.forEach(function(o) {
+                o._id = {}
                 o.quantity = {}
             });
             user.save().then(savedUser => {
