@@ -53,11 +53,7 @@ export default {
       if (!this.$store.state.isUserLoggedIn) {
         this.$router.push('/login')
       } else if (!this.$store.state.isUserAdmin) {
-        const user = this.$store.state.user
-        const item = this.item
-        item._id = this.$store.state.route.params.productId
-        await ProdService.putCart(user, item)
-        this.$router.push('/cart')
+        this.$router.push(`../cart/${this.$store.state.user._id}`)
       } else {
         alert('ADMINS CANT MAKE PURCHASES')
       }

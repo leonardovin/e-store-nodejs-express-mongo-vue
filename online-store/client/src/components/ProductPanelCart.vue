@@ -1,9 +1,10 @@
 <template lang="">
   <div>
     <div class="container product-area">
+      <a @click="limpar()" class="buybtn-inanimate">Limpar</a>
       <div class="row justify-content-around">
         <div
-          v-for="product in products"
+          v-for="(product, i) in products"
           :key="product.title"
           class="col-6 col-md-2 product-frame"
         >
@@ -12,10 +13,13 @@
           </div>
           <div class="contentbox">
             <h3>{{ product.title }}</h3>
-            <h2 class="price">{{ product.price }}</h2>
+            <h2 class="price">{{ product.price }} X {{ quantity[i] }}</h2>
+            <h3>Total: {{ format(product.price * quantity[i]) }} </h3>
           </div>
         </div>
       </div>
+      <h3>TOTAL: {{ total }}</h3>
+      <a class="buybtn-inanimate">Checkout</a>
     </div>
   </div>
 </template>
@@ -25,24 +29,34 @@ import ProdService from '@/services/product-service'
 export default {
   data() {
     return {
-      products: null,
-      item: null
+      products: [],
+      quantity: [],
+      total: 0,
+      index: 0
     }
   },
   methods: {
     navigateTo(route) {
       this.$router.push(route)
+    },
+    format(number) {
+      return number.toFixed(2)
+    },
+    async limpar(){
+        await ProdService.clearCart(this.$store.state.user._id)
     }
   },
   async mounted() {
-    const cart = this.$store.state.user.cart
-    var product = null
-    for (product in  cart) {
-        const product = await ProdService.show(cart._id)        
-        this.products.push(product)
+    for (var product in this.$store.state.user.cart) {
+      var res = (
+        await ProdService.show(this.$store.state.user.cart[product]._id)
+      ).data
+      var quantity = this.$store.state.user.cart[product].quantity
+      this.quantity.push(quantity)
+      this.products.push(res)
+      this.total = this.total + res.price * quantity
     }
-    console.log(product)
-    }
+  }
 }
 </script>
 <style scoped>

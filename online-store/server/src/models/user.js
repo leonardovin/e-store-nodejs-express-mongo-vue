@@ -26,6 +26,7 @@ const schema = new Schema({
     },
     admin: {
         type: Boolean,
+        default: false,
         required: false
     },
     cart: [{

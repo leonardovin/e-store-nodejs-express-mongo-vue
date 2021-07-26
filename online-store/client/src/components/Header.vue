@@ -118,7 +118,11 @@
 </template>
 <script>
 export default {
-  name: 'CategoryPage',
+  data() {
+    return {
+        queryString : null
+    }
+  },
   methods: {
     logout() {
       this.$store.dispatch('setToken', null)

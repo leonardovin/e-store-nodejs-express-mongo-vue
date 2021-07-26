@@ -34,4 +34,6 @@ module.exports = (app) => {
     //get a users cart
     app.get('/cart/:id',
         prodController.getCart)
+    app.delete('/cart/:id',
+        prodController.clearCart)
 }
