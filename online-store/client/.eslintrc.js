@@ -29,6 +29,6 @@ module.exports = {
         "space-before-blocks": "off",
         "func-call-spacing": "off",
         "key-spacing": "off",
-        "space-before-function-paren" : "off"
+        "space-before-function-paren": "off"
     }
 }
