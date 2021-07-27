@@ -26,20 +26,14 @@ const schema = new Schema({
     },
     admin: {
         type: Boolean,
+        default: false,
         required: false
     },
     cart: [{
-        quantity: {
-            type: Number,
-            required: true,
-            default: 1
-        },
-        productId: {
-            type: String,
-            required: true,
-            ref: 'Product'
-        }
+        quantity: Number,
+        _id: Schema.ObjectId
     }]
 })
+
 
 module.exports = mongoose.model('User', schema)

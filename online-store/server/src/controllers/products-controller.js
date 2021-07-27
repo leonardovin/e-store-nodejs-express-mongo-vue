@@ -69,19 +69,69 @@ module.exports = {
     },
     //put in cart
     async putInCart(req, res) {
-        console.log("1",req.body)
-        console.log("2",req.params)
+        console.log("1", req.body)
+        console.log("2", req.params)
         try {
             const user = await User.findById(req.params.id)
-            user.cart = req.body
+            user.cart.push(req.body)
+            console.log('here')
             user.save().then(savedUser => {
                 savedUser === user; // true
-              });
+            });
+            res.send(req.body)
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to add to the cartt'
+            })
+        }
+    },
+    //put in cart
+    async updateProduct(req, res) {
+        console.log("1", req.body)
+        console.log("2", req.params)
+        try {
+            const product = await Product.findById(req.body.productId)
+            product.quantity = product.quantity - req.body.quantity
+            product.save().then(savedProd => {
+                savedProd === product; // true
+            });
             res.send(req.body)
         } catch (err) {
             res.status(500).send({
                 error: 'an error has occured trying to add to the cart'
             })
         }
+    },
+    async getCart(req, res) {
+        try {
+            const user = await User.findById(req.params.id)
+            res.send(user.cart);
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to get all the products'
+            })
+        }
+    },
+    async clearCart(req, res) {
+        console.log(req.params)
+        try {
+            const user = await User.findById(req.params.id)
+            console.log(req.params)
+
+            user.cart.forEach(function(o) {
+                o._id = {}
+                o.quantity = {}
+            });
+            user.save().then(savedUser => {
+                savedUser === user; // true
+            });
+            console.log('here')
+            res.send(user.cart)
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to get all the products'
+            })
+        }
     }
+
 }

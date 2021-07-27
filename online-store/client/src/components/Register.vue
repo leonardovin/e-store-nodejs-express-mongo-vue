@@ -86,6 +86,7 @@ export default {
             })
             this.$store.dispatch('setToken', response.data.token)
             this.$store.dispatch('setUser', response.data.user)
+            this.$route.push('login')
         } catch (error) {
             this.error = error.response.data.error
         }

@@ -32,7 +32,7 @@ export default new Router({
             component: Login
         },
         {
-            path: '/cart',
+            path: '/cart/:userId',
             name: 'cart',
             component: Cart
         },

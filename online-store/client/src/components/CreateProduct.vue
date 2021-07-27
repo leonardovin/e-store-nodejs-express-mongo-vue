@@ -122,7 +122,7 @@ export default {
         console.log(this.product)
         await ProdService.post(this.product)
         this.$router.push({
-          name: 'prodpanel'
+          name: 'products'
         })
       } catch (err) {
         console.log(err)

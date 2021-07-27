@@ -118,10 +118,10 @@
 </template>
 <script>
 export default {
-  name: 'CategoryPage',
-  beforeRouteUpdate(to, from, next) {
-      this.adminCheck()
-      next()
+  data() {
+    return {
+        queryString : null
+    }
   },
   methods: {
     logout() {
@@ -129,19 +129,16 @@ export default {
       this.$store.dispatch('setUser', null)
       this.$router.push('/')
     },
+    navigateTo(route) {
+      this.$router.push(route)
+    },
     cartRoute() {
       if (!this.$store.state.isUserLoggedIn) {
         this.$router.push('/login')
       } else {
-        this.$router.push('/cart')
+        this.$router.push(`/cart/${this.$store.state.user._id}`)
       }
-    },
-    navigateTo(route) {
-      this.$router.push(route)
     }
-  },
-  created() {
-
   }
 }
 </script>
