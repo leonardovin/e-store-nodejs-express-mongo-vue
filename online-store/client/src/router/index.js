@@ -49,7 +49,7 @@ export default new Router({
 			component: Products
 		},
 		{
-			path: "/products/search",
+			path: "/products/search/:queryString",
 			name: "search",
 			component: Products
 		},

@@ -17,7 +17,7 @@ module.exports = (app) => {
   //get products
   app.get("/products", prodController.index);
   //search products
-  app.get("/products/search", prodController.index);
+  app.get("/products/search/:queryString", prodController.index);
   //get products landing page
   app.get("/", prodController.indexMP);
   //get a product

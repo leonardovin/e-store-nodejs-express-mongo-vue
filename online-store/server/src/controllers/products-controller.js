@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Product = require("../models/product");
 const User = require("../models/user");
 
@@ -32,9 +33,11 @@ module.exports = {
       const searchObj = {
         active: true,
       };
-      const title = req.title;
+      console.log(req.params.queryString);
+      let title = req.params.queryString;
       if (title) {
-        searchObj.title = title;
+        title = title.replace("%", " ");
+        searchObj.title = `/.*${title}.*/`;
       }
       const products = await Product.find(searchObj, null);
       res.send(products);
