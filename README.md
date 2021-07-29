@@ -128,9 +128,6 @@ Figura 7: Página de Pagamento
 
 6.  **Procedimento de Compilação**
 
-    Para compilação do projeto, é necessário instalar alguns pacotes no terminal, na pasta que se encontra os arquivos do trabalho:
-    i) 'npm init y', para criar um arquivo package.json para o projeto.
-    ii) 'npm i express', para criar abstrações de rota do site, entre outros.
     i) Abrir dois terminais, um na pasta client e outro na pasta server.
     ii) Em ambos, rodar o comando: npm install.
     iii) Para rodar: npm start nos dois terminais
@@ -145,7 +142,9 @@ Figura 7: Página de Pagamento
 
     Ausencia de alguns avisos na interface.
 
-    Ausencia de pagina de editar um produto
+    Ausencia de pagina de editar um produto.
+    
+    A função busca nao funciona corretamente
 
 8.  **Comentários**
 
