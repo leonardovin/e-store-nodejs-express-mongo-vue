@@ -131,7 +131,6 @@ Figura 7: Página de Pagamento
     Após a intalação das dependências, utiliza-se o comando 'node server.js' para executar o servidor do projeto.
 
 7.  **Problemas**
-    A função buscar não funciona corretamente
 
 8.  **Comentários**
 
