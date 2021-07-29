@@ -136,6 +136,7 @@ Figura 7: Página de Pagamento
     Após a intalação das dependências, utiliza-se o comando 'node server.js' para executar o servidor do projeto.
 
 7.  **Problemas**
+    A função buscar não funciona corretamente
 
     Funcionalidade de carrinhho: No momento o carrinho apenas adiciona produtos, e nao difere se um mesmo produto já esta presente. A funcionalidade de limpar o carrinho de um usuario presente na pagina de carrinho foi implementada, mas após alguns conflitos com o objeto resultante dessa operação no banco de dados, foi optado por retira-la. Além disso, quando um produto é adicionado em uum carrinho, o seu estoque não muda no banco de dados.
     
