@@ -128,8 +128,10 @@ Figura 7: Página de Pagamento
 
 6.  **Procedimento de Compilação**
 
-    i) Abrir dois terminais, um na pasta client e outro na pasta server.
-    ii) Em ambos, rodar o comando: npm install.
+    i) Abrir dois terminais, um na pasta client e outro na pasta server.,
+  
+  ii) Em ambos, rodar o comando: npm install.
+    
     iii) Para rodar: npm start nos dois terminais
 
     Após a intalação das dependências, utiliza-se o comando 'node server.js' para executar o servidor do projeto.
